@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
+export async function postUrl(request) {
+  console.log("request", request);
   try {
     const data = await request.json();
+
     const link = await prisma.acortador.create({
       data,
     });

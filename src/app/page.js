@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { POST } from "@/app/api/acortador/route";
+import { postUrl } from "./api/data/route";
 
 export default function Shortener() {
   const [url, setUrl] = useState("");
@@ -38,13 +38,10 @@ export default function Shortener() {
   };
 
   const handleSubmit = (e) => {
-    
     e.preventDefault();
     shortenUrl(url);
     setData({ url, shortUrl });
-
-    POST(data);
-    console.log(data);
+    postUrl(data);
   };
 
   return (
